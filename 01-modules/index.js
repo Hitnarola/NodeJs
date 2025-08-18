@@ -21,3 +21,5 @@ fs.mkdirSync("games/xyz/a", { recursive: true }); // to create the directory in 
 // fs.rmdirSync("games/xyz/a");
 
 // fs.unlinkSync("copy.txt"); // this will delete the file
+
+// to add the package.json file you type the npm init
