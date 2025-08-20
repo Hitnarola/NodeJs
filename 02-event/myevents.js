@@ -34,4 +34,4 @@ eventemitter.emit("test"); // if i removelistener then i again write the emit th
 
 console.log(eventemitter.listeners("greet")); // this will return how many events are create or register this will return the array of function
 
-console.log(eventemitter.listenerCount("greet"));
+console.log(eventemitter.listenerCount("greet"));// this will 
