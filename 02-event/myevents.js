@@ -7,7 +7,7 @@ const eventemitter = new EventEmitter();
 
 eventemitter.on("greet", (username) => {
   console.log(`hello my self ${username} and  welcome the events in nodejs`);
-});
+}); // listener
 //to create event
 
 eventemitter.once("pushnotify", () => {
@@ -16,6 +16,8 @@ eventemitter.once("pushnotify", () => {
 
 //emit the event
 eventemitter.emit("greet", "hit narola"); // to run greet event by emit
+
+// every single event that you are trying to emit there should be listener on that
 
 eventemitter.emit("greet", "narola");
 eventemitter.emit("pushnotify");
@@ -33,6 +35,3 @@ eventemitter.emit("test"); // if i removelistener then i again write the emit th
 console.log(eventemitter.listeners("greet")); // this will return how many events are create or register this will return the array of function
 
 console.log(eventemitter.listenerCount("greet"));
-
-
-
