@@ -1,3 +1,5 @@
+//to create the object of the eventemitter
+
 const EventEmitter = require("events");
 // this is used for importing the events module
 
@@ -27,3 +29,10 @@ eventemitter.on("test", mylistener);
 eventemitter.emit("test");
 eventemitter.removeListener("test", mylistener); // remove eventlistener
 eventemitter.emit("test"); // if i removelistener then i again write the emit then it will not run again
+
+console.log(eventemitter.listeners("greet")); // this will return how many events are create or register this will return the array of function
+
+console.log(eventemitter.listenerCount("greet"));
+
+
+
