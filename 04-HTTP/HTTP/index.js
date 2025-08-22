@@ -8,10 +8,15 @@ const server = http.createServer((req, res) => {
 
   switch (req.url) {
     case "/":
+      res.writeHead(200);
       return res.end("homepage");
     case "/contact-us":
+      res.writeHead(200);
+
       return res.end("contact me at scet gmail id");
     case "/about":
+      res.writeHead(200);
+
       return res.end("i am software eng");
     default:
       res.writeHead(404);
