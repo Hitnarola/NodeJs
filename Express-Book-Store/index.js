@@ -1,5 +1,5 @@
 const express = require("express");
-
+const fs = require("node:fs");
 const app = express();
 const PORT = 8000;
 
@@ -14,6 +14,12 @@ const books = [
 app.use(express.json());
 // what it will do if some data comes from the frontend and it has header that is application.json and it will do all the transformation for me and give me actual data in the request .body
 
+//custom middlewares
+app.use(function (req, res, next) {
+  const log = `\n[${Date.now()}] ${req.method} ${req.path}`;
+  fs.appendFileSync("log.txt", log, "utf-8");
+  next();
+});
 //Routes
 
 app.get("/books", (req, res) => {
