@@ -38,3 +38,13 @@ app.use(function (req, res, next) {
 app.listen(9000, () => {
   console.log("server listening on port 9000");
 });
+
+//for get ,post ,delete any   request for the /book then it run the
+app.use("/book", () => {}); //path match middleware
+//types of the middleware
+
+//you can have global middleware which run evertimes no matter in which routes the request isgoing
+
+// you can have route level middlewares
+
+// you can have router middlewares for this middleware you have to learn first the router concept in express

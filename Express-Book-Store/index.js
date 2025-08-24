@@ -10,23 +10,33 @@ const books = [
   { id: 2, title: "book two", author: "Auther two" },
 ];
 
+function loger(req, res, next) {
+  const log = `\n[${Date.now()}] ${req.method} ${req.path}`;
+  fs.appendFileSync("log.txt", log, "utf-8");
+  next();
+}
+
+function custom(req, res, next) {
+  console.log("i am custom middleware");
+  next();
+}
+
 //middlewares (plugins)
 app.use(express.json());
 // what it will do if some data comes from the frontend and it has header that is application.json and it will do all the transformation for me and give me actual data in the request .body
 
 //custom middlewares
-app.use(function (req, res, next) {
-  const log = `\n[${Date.now()}] ${req.method} ${req.path}`;
-  fs.appendFileSync("log.txt", log, "utf-8");
-  next();
-});
+app.use(loger);
+
 //Routes
 
 app.get("/books", (req, res) => {
   res.setHeader("x-name", "Hitnarola");
   res.json(books);
 });
-app.get("/books/:id", (req, res) => {
+
+//if there is request coming to /books.id then run first custom middleware and forcustom middleware the next function or middleware is third parameter (req,res) is the next mean the custom middleware internally call next function which is (req,res)=>{} this called the route level middlewares
+app.get("/books/:id", custom, (req, res) => {
   const id = parseInt(req.params.id); // from the parameter  get me the id
 
   if (isNaN(id))
