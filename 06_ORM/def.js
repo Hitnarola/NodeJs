@@ -11,3 +11,6 @@
 //1 full download through website of postgres
 // 2. through remote server (cloud database) means we can use the online database like supabase 
 //3. through docker container means we can use the database in our local machine without installing it in other words we used it virtually
+
+
+// in the prisma the issue is that it is not efficient in making query mean in this issue is the forein relation ship or joining in this query it fires two query but in the drizzle orm it is efficient in making query it fires only one query for the same thing and it is also faster than prisma orm
